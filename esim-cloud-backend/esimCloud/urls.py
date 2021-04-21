@@ -16,6 +16,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.conf.urls import url, include
 from arduinoAPI import urls as arduinoURLs
+from stateAPI import urls as workflowURLs
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -43,6 +44,9 @@ urlpatterns = [
 
     # publishAPI routes
     path('api/', include(publishURLs)),
+
+    # WorkflowAPI routes
+    path('api/workflow/', include(workflowURLs)),
 
     # Arduino Routes
     path('api/arduino/', include(arduinoURLs)),

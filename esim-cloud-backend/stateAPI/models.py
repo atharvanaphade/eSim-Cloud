@@ -32,6 +32,7 @@ class DeltaMetadata(models.Model):
 class Groups(models.Model):
     group = models.OneToOneField(Group, on_delete=models.CASCADE)
     states = models.ManyToManyField(State, related_name='groups')
+    is_arduino = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.group.name)
