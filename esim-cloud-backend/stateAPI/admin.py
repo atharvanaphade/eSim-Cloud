@@ -13,13 +13,13 @@ class CircuitStates(admin.ModelAdmin):
 @admin.register(Delta)
 class Deltas(admin.ModelAdmin):
     
-    list_display=['title','init_state','new_state']
+    list_display = ['title','init_state','new_state']
 
 @admin.register(DeltaMetadata)
 class DeltaMetadatas(admin.ModelAdmin):
     
-    readonly_fields = ('__all__')
-    list_display = ('__all__')
+    readonly_fields = ['id', 'circuit', 'time', 'author']
+    list_display = ['id', 'time', 'author']
 
 class GroupInline(admin.TabularInline):
     model = Groups
@@ -29,4 +29,5 @@ class GroupInline(admin.TabularInline):
 class GroupAdmin(BaseGroupAdmin):
     inlines = (GroupInline, )
 
+admin.site.unregister(Group)
 admin.site.register(Group, GroupAdmin)

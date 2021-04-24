@@ -4,7 +4,7 @@ from django.db.models.query import QuerySet
 from django.http import response
 from django.http.multipartparser import parse_header
 from django.shortcuts import render
-from rest_framework import APIView
+from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework import parsers
 from rest_framework.response import Response
@@ -60,7 +60,7 @@ class GetUserType(APIView):
         else:
             return Response(serializer.errors)
 
-class CicuitView(APIView):
+class CircuitView(APIView):
 
 
     parser_classes = [JSONParser, FormParser]
